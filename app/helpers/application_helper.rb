@@ -9,4 +9,8 @@ module ApplicationHelper
       raise_errors: true
     )
   end
+
+  def kramdown(text)
+    return sanitize Kramdown::Document.new(text).to_html
+  end
 end

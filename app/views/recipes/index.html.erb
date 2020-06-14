@@ -1,6 +1,24 @@
-<h1>Recipes#index</h1>
-<ul>
-<% @recipes.each do |recipe| %>
-  <li><%= link_to "#{recipe.id} - #{recipe.title}", recipe_path(recipe.id)%></li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-sm-12 col-md-6 mb-5">
+        <div class="card">
+          <%= link_to recipe_path(recipe.id) do %>
+            <%= image_tag recipe.photo.url, class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><%= recipe.chef.name if recipe.fields[:chef] %></h6>
+            <%= link_to recipe_path(recipe.id), :class => "card-title card-link text-body" do %>
+              <h5><%= recipe.title %></h5>
+            <% end %>
+            <div>
+              <%= render(partial: "tags", collection: recipe.tags, as: :item) if recipe.fields[:tags] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+

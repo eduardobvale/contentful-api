@@ -1,3 +1,20 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background-color: #f6f6f6;
+}
+
+.recipe-cover-container {
+  height: 325px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-cover-image {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -325px;
+} 
