@@ -57,3 +57,5 @@ gem "haml-rails", "~> 2.0"
 gem "kramdown", "~> 2.2"
 
 gem "simple_command", "~> 0.1.0"
+
+gem "redis-rails", "~> 5.0"
