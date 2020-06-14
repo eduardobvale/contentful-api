@@ -53,3 +53,8 @@ Only requests and views were tested and factory bot was used for fixtures.
 - I used rails low level to cache requests for a week, I think it would be better to use contentful "Sync API" to manage modifications and removed entries.
 - The client is inside RetrieveRecipes command, making it difficult to stub or even to build another command, I think its possible to move the client to another module and use dependency injection to resolve the issue.
 - Caching can be improved by using Action, or Fragment caching.
+
+#Screenshots
+
+![All recipes](/screenshot01.png) ![Recipe details](/screenshot02.png)
+
