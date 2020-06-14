@@ -1,15 +1,16 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Rails.cache.fetch("all/recipes", expires_in: 12.hours) do
-      helpers.contentful.entries(content_type: "recipe")
+    command = RetrieveRecipes.call
+    if command.success?
+      @recipes = command.result
     end
   end
 
   def show
-    @recipe = Rails.cache.fetch("#{params[:id]}/recipes", expires_in: 12.hours) do
-      helpers.contentful.entries(content_type: "recipe", "sys.id" => params[:id]).first
+    command = RetrieveRecipes.call params[:id]
+    if command.success?
+      @recipe = Rails.cache.fetch("#{params[:id]}/recipes", expires_in: 12.hours) { command.result.first }
+      render :not_found, status: :not_found if @recipe.nil?
     end
-
-    render :not_found, status: :not_found if @recipe.nil?
   end
 end

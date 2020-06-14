@@ -7,6 +7,6 @@ RSpec.describe "recipes/index.html.erb", type: :view do
 
     render
 
-    expect(rendered).to match /#{recipe.id}/
+    expect(rendered).to match /#{recipe.title}/
   end
 end

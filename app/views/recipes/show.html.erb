@@ -1,12 +1,12 @@
 <div class="container">
   <div class="card">
     <div class="card-img-top recipe-cover-container">
-      <%= image_tag @recipe.photo.url, class: "recipe-cover-image" %>
+      <%= image_tag @recipe.photo_url, class: "recipe-cover-image" %>
     </div>
     <div class="card-body">
       <h3 class="card-title"><%= @recipe.title %></h3>
       <div>
-        <%= render(partial: "tags", collection: @recipe.tags, as: :item) if @recipe.fields[:tags] %>
+        <%= render(partial: "tags", collection: @recipe.tags, as: :item) %>
       </div>
       <h4 class="card-title mt-4">What's cooking</h4>
       <p class="card-text"><%= kramdown @recipe.description %></p>
@@ -14,7 +14,7 @@
         <p class="text-muted">Calories: <%= @recipe.calories %> kcal</p>
       <% end %>
       <hr>
-      <p class="mb-2 text-muted">Shared with you by: <%= @recipe.fields[:chef] ? @recipe.chef.name : "Great Recipes" %></p>
+      <p class="mb-2 text-muted">Shared with you by: <%= @recipe.chef_name || "Great Recipes" %></p>
     </div>
   </div>
 </div>
