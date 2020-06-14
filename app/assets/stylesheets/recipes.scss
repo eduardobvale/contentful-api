@@ -17,9 +17,9 @@ body {
   left: 0;
 } 
 
-@include media-breakpoint-up(md) {
+@media (min-width: 768px) {
   .recipe-cover-image {
     top: 50%;
     margin-top: -325px;
-  }   
+  }
 }
