@@ -2,6 +2,8 @@
 
 ## Setup
 
+For this project you'll need ruby, bundler and yarn.
+
 * Setup credentials
 
 The following environment variables are mandatory:
@@ -16,6 +18,10 @@ You can set them in a .env file in project's root directory.
 
 ```bash
 bundle install
+```
+
+```bash
+yarn install
 ```
 
 * Run tests
