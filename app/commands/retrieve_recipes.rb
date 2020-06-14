@@ -3,7 +3,6 @@ class RetrieveRecipes
 
   def initialize(recipe_id = nil)
     @recipe_id = recipe_id
-    @client = get_client
   end
   
   def get_client
@@ -28,10 +27,16 @@ class RetrieveRecipes
   end
 
   def call
-    if @recipe_id
-      @client.entries(content_type: "recipe", "sys.id" => @recipe_id).map{|entry| map_entry_to_recipe(entry) }
-    else
-      @client.entries(content_type: "recipe").map{|entry| map_entry_to_recipe(entry) }
+    begin
+      contentful_client = get_client
+      if @recipe_id
+        contentful_client.entries(content_type: "recipe", "sys.id" => @recipe_id).map{|entry| map_entry_to_recipe(entry) }
+      else
+        contentful_client.entries(content_type: "recipe").map{|entry| map_entry_to_recipe(entry) }
+      end
+    rescue => exception
+      Rails.logger.error exception.message
+      errors.add :contentful_api, exception.message
     end
   end
 end
