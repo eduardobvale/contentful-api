@@ -14,7 +14,12 @@ body {
 .recipe-cover-image {
   position: absolute;
   width: 100%;
-  top: 50%;
   left: 0;
-  margin-top: -325px;
 } 
+
+@include media-breakpoint-up(md) {
+  .recipe-cover-image {
+    top: 50%;
+    margin-top: -325px;
+  }   
+}
