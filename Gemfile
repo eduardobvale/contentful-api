@@ -54,7 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "contentful", "~> 2.15"
 gem "haml-rails", "~> 2.0"
 
-gem "kramdown", "~> 2.2"
+gem "kramdown", "~> 2.3"
 
 gem "simple_command", "~> 0.1.0"
 
